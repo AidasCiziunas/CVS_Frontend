@@ -14,7 +14,7 @@
           <v-btn
             class="warning-button-outline mr-5 mt-5"
             @click="$router.push('/adjust-volume')"
-            color="#ffb404"
+            color="#cc0000"
             outlined
           >
             <img :src="require('@/assets/media/arrow-right-1.png')"
@@ -78,7 +78,7 @@ export default {
     min-width: 24vw;
     width: 19vw;
     line-height: 4vh;
-    color: #ffffff;
+    /* color: #ffffff; */
   }
   .align-step-button {
     margin-top: 64px;

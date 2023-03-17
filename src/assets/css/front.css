@@ -1,5 +1,6 @@
 .header {
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 @media only screen and (min-width: 801px) and (max-width: 1000px) {
     /* .banner-button-start {
@@ -92,7 +93,7 @@
 
 @media only screen and (min-width: 300px) and (max-width: 400px) {
     .start-btn-sm {
-        background: #102132 url('../media/mask-group.png')no-repeat center center / cover;
+        background: #fff url('../media/bg-white.jpg')no-repeat center center / cover;
         height: 38vh;
         /* width: 150vw; */
 
@@ -101,7 +102,7 @@
 
 @media only screen and (min-width: 401px) and (max-width: 800px) {
     .start-btn-sm {
-        background: #102132 url('../media/mask-group.png')no-repeat center center / cover;
+        background: #fff url('../media/bg-white.jpg')no-repeat center center / cover;
 
         height: 43vh;
         /* width: 150vw; */
@@ -181,7 +182,7 @@
 
     .warning-button-outline {
       min-height: 34px;
-      height: 8vw !important;
+      /* height: 8vw !important; */
     }
 
     .align-step-button,
@@ -277,7 +278,7 @@
         width: initial;
 
         /* line-height: 4vh !important; */
-        color: #ffffff;
+        color: #1E1D1B;
     }
 
     .volume-2 {
@@ -382,8 +383,8 @@
     .ex1 span {
         display: block;
         /* padding: 24px 4px 3px 11px; */
-        border: 2px solid #142435;
-        background: #1f2f40;
+        /* border: 2px solid #142435;
+        background: #1f2f40; */
         border-radius: 5px;
         width: 25vw !important;
         /* height: 14vh !important; */
@@ -482,7 +483,7 @@
     font-size: 16px !important;
     line-height: 20px;
 
-    color: #FFB404;
+    color: #CC0000;
 }
 
 .audien-title h1 span {
@@ -521,7 +522,7 @@
 
 
 .left-side {
-    /* background: #102132 url('../media/mask-group.png')no-repeat center center / cover; */
+    background: url('../media/bg-white.jpg')no-repeat center center / cover;
     min-height: 80vh;
     height: auto;
 }
@@ -596,7 +597,7 @@ theme--light.v-divider {
     /* identical to box height, or 125% */
 
 
-    color: #FFFFFF;
+    color: #1E1D1B;
 
 
     /* Inside auto layout */
@@ -612,8 +613,7 @@ theme--light.v-divider {
     font-weight: 300;
     font-size: 14px;
     line-height: 20px;
-    color: #FFFFFF;
-    opacity: 0.5;
+    color: rgb(30,29,27, 0.5);
 }
 
 .v-application p {
@@ -671,7 +671,7 @@ theme--light.v-divider {
     text-transform: uppercase !important;
 
 
-    color: #102132 !important;
+    color: #ffffff !important;
 }
 
 .banner-image {
@@ -694,12 +694,13 @@ theme--light.v-divider {
 
 .footer-logo {
     display: flex;
+    align-items: center;
     line-height: 100px;
     gap: 30px;
 }
 
 .footer-logo img {
-    height: 80%;
+    /* height: 80%; */
 }
 
 .footer-logo a {
@@ -760,10 +761,13 @@ theme--light.v-divider {
     flex-grow: 0;
 }
 
-.social-icon button,
 .media button {
-    background-color: #1F2F40 !important;
+    background-color: #F2F2F2 !important;
     width: 35px;
+}
+.social-icon button {
+  background-color: #2E2D2B !important;
+  width: 35px;
 }
 
 /* birth day screen */
@@ -944,8 +948,8 @@ theme--light.v-divider {
 .ex1 span {
     display: block;
     /* padding: 24px 4px 3px 11px; */
-    border: 2px solid #142435;
-    background: #1F2F40;
+    /* border: 2px solid #142435; */
+    /* background: #1F2F40; */
     border-radius: 5px;
     width: 9vw;
     /* height: 100px; */
@@ -1015,11 +1019,12 @@ theme--light.v-divider {
     height: 80px;
     left: 310px;
     top: 446px;
-    background: #1F2F40;
     border-radius: 10px;
     padding-top: 23px;
     padding-left: 20px;
     padding-right: 20px;
+    background: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.24);
 }
 
 
@@ -1182,7 +1187,8 @@ theme--light.v-divider {
 
 .circle {
 
-    border: 2px solid rgb(255 255 255 / 15%);
+    /* border: 2px solid rgb(255 255 255 / 15%); */
+    border: 2px solid #1E1D1B1a;
     position: relative;
     /* top: -40px; */
     bottom: 1.6vh;
@@ -1194,7 +1200,7 @@ theme--light.v-divider {
 
 .yellow-circle-tick {
 
-    background: #ffb404 url('../media/tick.png') no-repeat center center;
+    background: #CC0000 url('../media/tick.png') no-repeat center center;
     position: relative;
     /* top: -40px; */
     bottom: 1.6vh;
@@ -1240,7 +1246,7 @@ theme--light.v-divider {
         font-size: 20px;
         width: 37vw;
         line-height: 5vh;
-        color: #FFFFFF;
+        color: #1E1D1B;
     }
 
     .align-content-space-between {
@@ -1277,7 +1283,7 @@ theme--light.v-divider {
     } */
 
     .left-side {
-        /* background: #102132 url('../media/mask-group.png')no-repeat center center / cover; */
+        /* background: #fff url('../media/white-bg.png')no-repeat center center / cover; */
         height: auto;
         /* min-height: 90vh; */
     }
@@ -1457,7 +1463,7 @@ theme--light.v-divider {
 
     .left-side {
         width: 100vw;
-
+        background: #F4F4F4;
         /* background: #102132; */
 
     }
@@ -1465,7 +1471,7 @@ theme--light.v-divider {
 
     .flex-mobile-align {
         flex-direction: column !important;
-        background: #102132;
+        background: #F4F4F4;
     }
 
     .mobile-right-side {
@@ -1517,7 +1523,7 @@ theme--light.v-divider {
     }
     .banner-with-person {
       background-position-y: 37px;
-      background-color: #102132;
+      background-color: #F4F4F4;
     }
 
     .banner-with-person img {
@@ -1557,7 +1563,7 @@ theme--light.v-divider {
       width: 100vw !important;
       /* height: 40vh; */
       margin: 0 !important;
-      background: #102132;
+      background: #fff;
       border-radius: 30px 30px 0px 0px;
       padding-top: 40px;
       padding-right: 20px;
@@ -1577,6 +1583,7 @@ theme--light.v-divider {
     }
     .mobile-tooltip .content span {
       /* opacity: 0.5; */
+      color: #1E1D1B80;
     }
     .mobile-tooltip:before {
       content: " ";
@@ -1600,7 +1607,7 @@ theme--light.v-divider {
       font-style: normal;
       font-weight: 700;
       /* font-size: 16px; */
-      color: #FFFFFF;
+      color: #1E1D1B;
     }
 
     .tooltip-close {

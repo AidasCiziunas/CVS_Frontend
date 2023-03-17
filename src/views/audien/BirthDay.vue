@@ -17,56 +17,22 @@
             min-width="290px"
           >
             <template v-slot:activator="{ on }">
-              <!-- <v-text-field
-                v-model="date"
-                prepend-inner-icon="event"
-                outlined
-                readonly
-                class="birth-day"
-                color="#1F2F40"
-                v-on="on"
-              >
-                <template slot="append">
-                  <v-btn v-on="on" color="#1F2F40" class="mb-3">
-                    <img :src="require('@/assets/media/arrow-down.png')" />
-                  </v-btn>
-                </template>
-              </v-text-field> -->
               <div class="input-container mt-10">
                 <i class="icon right calendar-icon" v-on="on">
                   <img :src="require('@/assets/media/date-calendar.png')" />
                 </i>
-                <select
-                  class="input-field"
-                  type="text"
+                <v-select
+                  class="year-select"
+                  :items="years"
                   v-model="date"
-                  placeholder="Username"
-                  name="usrnm"
-                 
+                  background-color="#F2F2F2"
+                  height="65"
+                  color="red"
+                  solo
+                  flat
                 >
-                <option value="2003">2003</option>
-                <option value="2002">2002</option>
-                <option value="2001">2001</option>
-                <option value="2000">2000</option>
-                <option value="1999">1999</option>
-                <option value="1998">1997</option>
-                <option value="1996">1996</option>
-                 <option value="1995">1995</option>
-                 <option value="1994">1994</option>
-                 <option value="1993">1993</option>
-                 <option value="1992">1992</option>
-                 <option value="1991">1991</option>
-                 <option value="1990">1990</option>
-                 <option value="1989">1989</option>
-                <option value="1988">1988</option>
-                <option value="1987">1987</option>
-                </select>
-                <i class="icon left arrow-down-icon">
-                  <img
-
-                    :src="require('@/assets/media/arrow-down.png')"
-                  />
-                </i>
+                </v-select>
+                <i class="icon left arrow-down-icon"></i>
               </div>
             </template>
             <v-date-picker 
@@ -131,17 +97,43 @@ export default {
   },
 
   data: () => ({
-    date: 2003,
+    date: null,
     menu: false,
     modal: false,
+    years: []
   }),
+  created(){
+    for (var i = 1920; i <= 2020; i++) {
+      this.years.push(i);
+    }
+    this.date = this.years.at(-1)
+  },
   methods:{
     submitYear(){
+     let year= new Date().getFullYear();
+     let yearMin = year-18;
+     console.log(yearMin);
+     if(yearMin<=this.date){
+      this.$awn.alert('User Ager must be 18+', {labels:{alert: 'Age Restriction'}})
+
+       return false;
+     }
+       
+      if(!this.$store.state.HearingTest.dataLog){
       apiClient.post('birth-year',{
+        birth_year:this.date
+      }).then((response)=>{
+        console.log(response.data['test-configuration'].id)
+        this.$store.dispatch("testId",response.data['test-configuration'].id)
+        this.$router.push('/best-result')
+      })
+      }else{
+        apiClient.post('birth-year?id='+this.$store.state.HearingTest.dataLog.id,{
         birth_year:this.date
       }).then((response)=>{
        this.$router.push('/best-result')
       })
+      }
       // 
     }
   }
@@ -172,6 +164,8 @@ export default {
   width: 100%;
   margin-bottom: 15px;
   height: 70px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.24);
+  border-radius: 15px;
 }
 .right {
   border-top-left-radius: 10px !important;
@@ -184,17 +178,17 @@ export default {
   padding-top: 9px;
   padding-bottom: 9px;
   /* padding: 5px; */
-  background: #102132;
+  background: #F2F2F2;
   color: white;
   min-width: 37px;
   text-align: center;
   width: 69px;
-  border-top: 2px solid #1f2f40;
-  border-bottom: 2px solid #1f2f40;
-  border-left: 2px solid #1f2f40;
+  border-top: 2px solid #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
+  border-left: 2px solid #FFFFFF;
 }
 .left {
-  background: #1f2f40;
+  background: #fff;
   border-end-end-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -265,5 +259,26 @@ input:focus {
   .input-container {
     justify-content: center;
   }
+}
+>>> .v-select__selection {
+  color: #1E1D1B;
+}
+.year-select {
+  border-top: 2px solid #FFF;
+  border-bottom: 2px solid #FFF;
+  border-radius: 0;
+}
+>>> .year-select .v-input__icon {
+  position: relative;
+  left: 58px;
+  /* color: #FFB404; */
+}
+>>> .year-select .v-input__icon .v-icon::before {
+  color: #CC0000;
+  content: "\F140"
+}
+
+>>> .year-select > .v-input__control > .v-input__slot {
+  padding: 0;
 }
 </style>

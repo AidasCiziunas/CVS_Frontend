@@ -3,7 +3,7 @@
     <div class="left-header mobile-left-side">
       <div class="logo-align">
         <router-link to="/">
-          <img :src="require('@/assets/media/Logo.png')" alt="logo"
+          <img :src="require('@/assets/media/logo-converted.png')"
         /></router-link>
       </div>
     </div>
@@ -22,14 +22,14 @@
       <div class="mobile-flex">
         <div>
           <router-link to="/">
-            <img class="logo" :src="require('@/assets/media/Logo.png')" alt="logo"
+            <img class="logo" :src="require('@/assets/media/logo-sm.png')" alt="logo"
           /></router-link>
         </div>
 
         <v-btn
-          class="warning-button-outline mr-5 mt-10"
+          class="warning-button-outline mr-5"
           @click="$router.push('/completing-hearing')"
-          color="#ffb404"
+          color="#cc0000"
           rounded="pill"
           outlined
         >
@@ -44,7 +44,7 @@
 export default {
   computed: {
     isFinish() {
-      return /(finish)$/.test(this.$route.path)
+      return /(finish)$/.test(this.$route.path);
     },
   },
 };
@@ -56,8 +56,7 @@ export default {
 }
 @media only screen and (min-width: 300px) and (max-width: 800px) {
   .logo {
-    width: 41vw;
-    margin-top: 3vh;
+    display: block;
   }
   .moobile-header {
     display: block !important;
@@ -71,8 +70,10 @@ export default {
   .mobile-flex {
     display: flex;
     justify-content: space-around !important;
-    background: #102132;
+    /* background: #102132; */
+    height: 88px;
     width: 100vw;
+    align-items: center;
   }
 }
 @media only screen and (min-width: 801px) and (max-width: 1400px) {
@@ -88,7 +89,7 @@ export default {
   font-size: 1.7vh !important;
   letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
-  color: #fff !important;
+  color: #1E1D1B !important;
   border-radius: 10px !important;
   height: 10px !important;
 }

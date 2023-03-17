@@ -43,7 +43,7 @@
               @click="$router.push('/instruction')"
               style="width: 70%"
             >
-              <img class="mr-2" :src="require('@/assets/media/user-ear.png')" />Left ear
+              <img class="mr-2" :src="require('@/assets/media/ear-left.png')" />Left ear
             </v-btn>
           </div>
         </div>
@@ -73,14 +73,14 @@
             <div class="d-flex justify-space-between">
               <v-btn 
                 class="warning-button-outline mt-5" 
-                color="#ffb404" 
+                color="#cc0000" 
                 style="width: 47%"
                 outlined
               ><img :src="require('@/assets/media/icon-minus-orange.png')" 
               /></v-btn>
               <v-btn 
                 class="warning-button-outline mt-5" 
-                color="#ffb404" 
+                color="#cc0000" 
                 style="width: 47%"
                 outlined
               ><img :src="require('@/assets/media/icon-plus-orange.png')" 
@@ -108,7 +108,7 @@
           <v-btn
             class="warning-button-outline mr-2 mt-5"
             @click="$router.push('/instruction')"
-            color="#ffb404"
+            color="#cc0000"
             outlined
           >
             <img :src="require('@/assets/media/arrow-right-1.png')"
@@ -528,6 +528,7 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
 }
 .warning-button__ear img {
   color: #fff;
+  width: 24%;
 }
 >>> .warning-button__ear .v-btn__content {
   color: #fff !important;

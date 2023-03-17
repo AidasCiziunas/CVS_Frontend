@@ -2,8 +2,8 @@
   <div class="footer-area">
     <div class="footer-content">
       <div class="footer-logo mt-3">
-        <img :src="require('@/assets/media/Logo.png')" alt="logo" />
-        <a class="mb-3 ml-5">© 2023, Audien Hearing</a>
+        <img :src="require('@/assets/media/footer-logo.png')" alt="logo" />
+        <a class="ml-5">© 2023, CVS Pharmacy</a>
       </div>
       <div class="social-icon">
         <div class="links"><a>Privacy Policy </a>| <a>Terms of Use</a></div>
@@ -30,12 +30,12 @@
   }
 }
 .footer-content {
-  width: 90vw;
+  /* width: 90vw; */
   display: flex;
   justify-content: space-around;
 }
 .footer-area {
-  background: #07121c;
+  background: #161614;
   /* height: 10vh; */
 }
 .v-btn:not(.v-btn--round).v-size--default {
@@ -51,7 +51,7 @@
 }
 @media only screen and (min-width: 801px) and (max-width: 1400px) {
   .footer-area {
-    background: #07121c;
+    background: #161614;
     height: 15vh;
   }
 }

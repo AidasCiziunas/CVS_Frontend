@@ -17,7 +17,7 @@
         <div class="align-content-space-between mt-10">
           <div class="media">
             <div class="mt-1">
-              <v-btn color="#1F2F40;" class="mr-1" height="60">
+              <v-btn color="#F2F2F2;" class="mr-1" height="60">
                 <img :src="require('@/assets/media/timer.png')"
               /></v-btn>
             </div>
@@ -29,7 +29,7 @@
           </div>
           <div class="media">
             <div class="mt-1">
-              <v-btn color="#1F2F40;" class="mr-1" height="60">
+              <v-btn color="#F2F2F2;" class="mr-1" height="60">
                 <img :src="require('@/assets/media/user.png')"
               /></v-btn>
             </div>
@@ -107,7 +107,7 @@ export default {
     position: relative;
     /* left: 2.3vh !important;
     top: 2.9vh !important; */
-    background: #ffb404;
+    background: #CC0000;
     font-family: 'Lato';
     font-style: normal;
     font-weight: 800;
@@ -140,7 +140,7 @@ export default {
     /* bottom: 24px !important; */
     /* top: 2vh !important; */
     /* left: 5.5vw !important; */
-    background: -webkit-gradient(
+    /* background: -webkit-gradient(
       linear,
       right top,
       left top,
@@ -151,7 +151,8 @@ export default {
       270deg,
       #ffffff0f 26%,
       rgb(255 180 4 / 0%) 151%
-    );
+    ); */
+    /* background: linear-gradient(180deg, #000000 0%, rgba(255, 255, 255, 0) 100%); */
   }
   .gradient-one {
     position: relative;
@@ -164,7 +165,7 @@ export default {
     /* bottom: 24px; */
     /* top: 5vh ; */
     /* left: 15vw ; */
-    background: -webkit-gradient(
+    /* background: -webkit-gradient(
       linear,
       right top,
       left top,
@@ -175,7 +176,7 @@ export default {
       270deg,
       #ffffff14 26%,
       rgb(255 180 4 / 0%) 151%
-    );
+    ); */
   }
   .start-btn-sm {
     display: flex;
@@ -209,11 +210,6 @@ export default {
     line-height: 56px !important;
     margin-bottom: 20px;
   }
-  .button-start{
-    /* position: absolute;
-    left: 7% !important; */
-    /* right: 3%; */
-  }
   .left-side {
     height: 100vh;
     width: 100vw;
@@ -235,7 +231,7 @@ export default {
     text-align: center;
     /* width: 80vw; */
     line-height: 4vh;
-    color: #ffffff;
+    /* color: #ffffff; */
 
     font-size: 1rem;
   }
@@ -247,17 +243,7 @@ export default {
     /* margin: -5.1vw; */
     width: 28vh !important;
     height: 28vh !important;
-    /* bottom: 24px !important; */
-    /* top: 3vh !important; */
-    /* left: 5vw !important; */
-    background: -webkit-gradient(
-      linear,
-      right top,
-      left top,
-      color-stop(26%, #ffffff12),
-      color-stop(151%, rgb(255 180 4 / 2%))
-    );
-       background: linear-gradient(270deg, #ffffff0d 26%, rgb(255 180 4 / 2%) 151%);
+   
   }
   .gradient-one {
     position: relative;
@@ -267,17 +253,6 @@ export default {
     /* margin: -5.1vw; */
     width: 33vh !important;
     height: 33vh !important;
-    /* bottom: 24px; */
-    /* top: 5vh !important; */
-    /* left: 13vw !important; */
-    background: -webkit-gradient(
-      linear,
-      right top,
-      left top,
-      color-stop(26%, #ffffff14),
-      color-stop(151%, rgb(255 180 4 / 0%))
-    );
-      background: linear-gradient(195deg, #ffffff12 26%, rgb(255 180 4 / 0%) 151%);
   }
   .get-start {
     width: 22vh !important;
@@ -285,7 +260,7 @@ export default {
     position: relative;
     /* left: 3.3vh !important; */
     /* top: 2.9vh !important; */
-    background: #ffb404;
+    background: #CC0000;
     font-family: 'Lato';
     font-style: normal;
     font-weight: 800;
@@ -318,7 +293,7 @@ export default {
   position: relative;
   /* left: 3.3vh; */
   /* top: 2.9vh; */
-  background: #ffb404;
+  background: #CC0000;
   font-family: 'Lato';
   font-style: normal;
   font-weight: 800;
@@ -336,7 +311,7 @@ export default {
   text-align: center;
   /* letter-spacing: 0.1em; */
   text-transform: uppercase;
-  color: #102132;
+  color: #FFFFFF;
   border-radius: 50%;
 }
 .gradient-two {
@@ -355,14 +330,17 @@ export default {
   /* top: 3vh; */
   /* left: 1.5vw; */
   padding: 1.7rem;
-  background: -webkit-gradient(
+  /* background: -webkit-gradient(
     linear,
     right top,
     left top,
     color-stop(26%, #ffffff3b),
     color-stop(151%, rgb(255 180 4 / 2%))
   );
-  background: linear-gradient(270deg, #ffffff12 26%, rgb(255 180 4 / 2%) 151%);
+  background: linear-gradient(270deg, #ffffff12 26%, rgb(255 180 4 / 2%) 151%); */
+  background: linear-gradient(180deg, #0000001a 0%, rgba(255, 255, 255, 0) 100%);
+  /* background: linear-gradient(180deg, #0000001a 0%, rgba(255, 255, 255, 0) 100%); */
+  /* opacity: 0.1; */
 }
 .gradient-one {
   display: flex;  
@@ -380,14 +358,7 @@ export default {
   /* top: 5vh; */
   /* left: 6vw; */
   padding: 1.7em;
-  background: -webkit-gradient(
-    linear,
-    right top,
-    left top,
-    color-stop(26%, #ffb40442),
-    color-stop(151%, rgb(255 180 4 / 2%))
-  );
-  background: linear-gradient(270deg, #ffffff14 26%, rgb(255 180 4 / 0%) 151%);
+  background: linear-gradient(180deg, #0000001a 0%, rgba(255, 255, 255, 0) 100%);
 }
 .banner-button-start {
   position: absolute; 

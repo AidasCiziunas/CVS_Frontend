@@ -17,7 +17,7 @@
           <v-btn
             class="warning-button-outline mr-5 mt-2"
             @click="$router.push('/birth-day')"
-            color="#ffb404"
+            color="#CC0000"
             outlined
           >
             <img :src="require('@/assets/media/arrow-right-1.png')" />
@@ -71,7 +71,7 @@ export default {
     max-width: 31vw;
     width: 30vw;
     line-height: 4vh;
-    color: #ffffff;
+    /* color: #ffffff; */
   }
 }
 

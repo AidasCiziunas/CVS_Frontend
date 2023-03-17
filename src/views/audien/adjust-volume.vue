@@ -1,5 +1,38 @@
 <template>
   <div>
+    <div 
+      class="overlay"
+      :class="{ show: isTooltipVisible }"
+      @click="toggleTooltip"
+    ></div>
+    <div
+      class="mobile-tooltip"
+      :style="{ display: isTooltipVisible ? 'block' : 'none' }"
+    >
+      <div class="content">
+        <p class="mobile-tooltip__header mb-5 mx-16"> 
+          <img
+            class="tooltip-close"
+            @click="toggleTooltip"
+            :src="require('@/assets/media/arrow-left.png')"
+          />
+           What is a comfortable listening level?
+        </p>
+
+        <div class="text-center">
+          <span
+            >A comfortable listening level differs from one individual to
+            the next. Please find your own comfortable listening level. You
+            should be able to clearly hear numbers being spoken. Setting the
+            volume levels “too loud” or “too soft” will risk the accuracy of
+            your hearing screener results.</span
+          >
+        </div>
+
+      </div>
+    </div>
+
+
     <headerVue />
       <div class="flex-align flex-mobile-align">
         <div class="left-side mobile-left mobile-left-side">
@@ -15,19 +48,17 @@
             <v-slider
               prepend-icon="mdi-volume-high"
               v-model="slider1"
-              color="orange"
-              thumb-color="#fff"
-              track-color="#102132"
+              thumb-color="#1E1D1B"
+              thumb-size="40"
+              color="#CC0000"
+              track-color="#1616141a"
             >
             </v-slider>
-            <b style="color: #fff" class="mt-1"> {{ slider1 }}</b>
+            <b style="color: #1E1D1B" class="mt-1"> {{ slider1 }}</b>
           </div>
           <a class="volume-info-link" @click="toggleTooltip">What is a comfortable listening level?</a>
         </div>
-        <div 
-          class="align-content-space-between mt-16 mobile-popup"
-          :style="{ display: isTooltipVisible ? 'block' : 'none' }"
-        >
+        <div class="align-content-space-between mt-16 desktop-only">
           <div class="media">
             <div class="media__icon mt-1 mr-2">
               <v-btn color="#1F2F40;" height="60">
@@ -46,7 +77,7 @@
                 /></v-btn>
                 
               </div>
-              <p class="mb-2 mx-16">What is a comfortable listening level?</p>
+              <p class="mb-2">What is a comfortable listening level?</p>
 
               <span
                 >A comfortable listening level differs from one individual to
@@ -62,7 +93,7 @@
           <v-btn
             class="warning-button-outline mr-5"
             @click="$router.push('/ear-select')"
-            color="#ffb404"
+            color="#cc0000"
             outlined
           >
             <img :src="require('@/assets/media/arrow-right-1.png')"
@@ -75,7 +106,7 @@
         </div>
       </div>
       <div ref="myBtn" class="back-office-page mobile-right right-side">
-        <headephone />
+        <headephone isPlaying />
       </div>
     </div>
     <AppFooterVue />
@@ -98,7 +129,7 @@ export default {
     return {
       slider1: 0,
       volume:0.2,
-      isTooltipVisible: true
+      isTooltipVisible: false
     };
   },
      watch: {
@@ -123,7 +154,7 @@ export default {
   },
    methods:{
     suspendNext(){
-      apiClient.post("sound-frequency",{frequency:(this.slider1/100)*10}).then((response)=>{
+      apiClient.post("sound-frequency?id="+this.$store.state.HearingTest.ID,{frequency:(this.slider1/100)*10}).then((response)=>{
 	console.log(audioCtx.state);
   this.$router.push('/instruction');
   })
@@ -135,7 +166,7 @@ export default {
 // load some sound
  audioElement =  this.$refs.test;
 
- pannerOptions = {pan: -1};
+ pannerOptions = {pan: 0};
  track = audioCtx.createMediaElementSource(audioElement);
  panner = new StereoPannerNode(audioCtx, pannerOptions);
  gainNode = audioCtx.createGain();
@@ -171,7 +202,7 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   font-weight: 800;
   font-size: 2.2vw;
   line-height: 4vw;
-  color: #ffffff;
+  /* color: #ffffff; */
 }
 .volume {
   text-align: start;
@@ -179,7 +210,7 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   height: 80px;
   left: 310px;
   top: 446px;
-  background: #1f2f40;
+  /* background: #1f2f40; */
   border-radius: 10px;
   padding-top: 23px;
   padding-left: 20px;
@@ -257,6 +288,7 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   display: none;
 }
 @media only screen and (max-width: 800px) {
+
   .mobile-popup {
     /* display: none; */
 
@@ -304,13 +336,17 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
 
   }
   .align-content-space-between {
-    flex-direction: column;
+    display: block;
+    text-align: center;
+  }
+  .desktop-only {
+    display: none;
   }
   .volume-info-link {
     display: inline-block;
-    color: #FFB404;
-    margin: 10px 0;
-    /* border-bottom: 1px solid #FFB404; */
+    color: #CC0000;
+    margin-top: 20px;
+    border-bottom: 1px dotted #CC0000;
 
 
     font-family: 'Lato';
@@ -319,5 +355,8 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
     line-height: 20px;
     text-align: center;
   }
+}
+>>> i.mdi-volume-high {
+  color: #1E1D1B;
 }
 </style>

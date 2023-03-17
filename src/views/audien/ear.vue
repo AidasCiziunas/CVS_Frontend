@@ -16,7 +16,7 @@
                 <div
                   :class="ear == -1 ? 'yellow-circle-tick' : 'circle'"
                 ></div>
-                <img :src="require('@/assets/media/right-ear.png')" />
+                <img :src="require('@/assets/media/ear-left.png')" />
                 <p>Left</p>
               </span>
             </label>
@@ -26,7 +26,7 @@
                 <div
                   :class="ear == 0 ? 'yellow-circle-tick' : 'circle'"
                 ></div>
-                <img :src="require('@/assets/media/both-ear.png')" />
+                <img :src="require('@/assets/media/ear-both.png')" />
                 <p>Both</p>
               </span>
             </label>
@@ -36,7 +36,7 @@
                 <div
                   :class="ear == 1 ? 'yellow-circle-tick' : 'circle'"
                 ></div>
-                <img :src="require('@/assets/media/left-ear.png')" />
+                <img :src="require('@/assets/media/ear-right.png')" />
                 <p>Right</p>
               </span>
             </label>
@@ -48,7 +48,7 @@
           <v-btn
             class="warning-button-outline mr-5 mt-10"
             @click="$router.push('/best-result')"
-            color="#ffb404"
+            color="#CC0000"
             outlined
           >
             <img :src="require('@/assets/media/arrow-right-1.png')"
@@ -65,7 +65,7 @@
       </div>
        <div  ref="myBtn" class="back-office-page mobile-right right-side">
      
-        <headephone />
+        <headephone isPlaying />
       </div>
     </div>
     <footerVue />
@@ -131,14 +131,13 @@ export default {
            selectectEar='left'
           }
  
-    apiClient.post("ear",{ear:selectectEar}).then((response)=>{
+    apiClient.post("ear?id="+this.$store.state.HearingTest.ID,{ear:selectectEar}).then((response)=>{
     
        this.$router.push('/adjust-volume')
     })  
    
     },
      refreshData() {
-      console.clear()
        AudioContext = window.AudioContext || window.webkitAudioContext;
  audioCtx = new AudioContext();
 
@@ -158,7 +157,7 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   },
   data() {
     return {
-      ear: 1,
+      ear: -1,
       audios:[
         {
           id:1,
@@ -246,8 +245,8 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   padding-bottom: 25px;
   display: block;
   /* padding: 24px 4px 3px 11px; */
-  border: 2px solid #142435;
-  background: #1f2f40;
+  /* border: 2px solid #142435; */
+  background: #fff;
   border-radius: 5px;
   width: 11vw;
   /* height: 8.2vw; */
@@ -257,6 +256,8 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   -webkit-transition: all 0.25s linear;
   transition: all 0.25s linear;
   text-align: center;
+
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.24);
 }
 .footer {
   height: 100px;
@@ -270,5 +271,12 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
 }
 .banner-image img {
   height: 54vh;
+}
+@media only screen and (max-width: 800px) {
+  .radio-content {
+    min-width: inherit;
+    max-width: inherit;
+    margin: 0;
+  }
 }
 </style>
