@@ -674,6 +674,10 @@ theme--light.v-divider {
     color: #ffffff !important;
 }
 
+.v-btn--disabled .v-btn__content {
+  color: #1E1D1B !important;
+}
+
 .banner-image {
     /* position: fixed; */
     /* bottom: 9.3vh; */
@@ -881,7 +885,7 @@ theme--light.v-divider {
     font-size: 13px;
     line-height: 26px;
 
-    color: #FFFFFF;
+    color: #1E1D1B;
 }
 
 .birth-day.v-text-field--outlined fieldset {

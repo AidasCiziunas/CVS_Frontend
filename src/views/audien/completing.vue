@@ -23,7 +23,7 @@
                     class="completing-input"
                     outlined
                     label="First name"
-                    color="rgba(255, 255, 255, 0.2)"
+                    color="#1E1D1B"
                     dense
                     required
                   >
@@ -44,7 +44,7 @@
                     inputClasses="completing-input"
                     dense
                     label="Last name"
-                    color="rgba(255, 255, 255, 0.2)"
+                    color="#1E1D1B"
                     required
                   >
                     <template slot="append">
@@ -64,7 +64,7 @@
                     dense
                     single-line
                     required
-                    color="rgba(255, 255, 255, 0.2)"
+                    color="#1E1D1B"
                   >
                     <template slot="append">
                       <img
@@ -76,7 +76,7 @@
                 <v-col class="col-md-6 col-sm-12 col-lg-6" cols="12">
                   <vue-tel-input-vuetify
                     selectClasses="completing-input"
-                    color="rgba(255, 255, 255, 0.2)"
+                    color="#1E1D1B"
                     class="completing-input"
                     label="Contact Number"
                     outlined
@@ -115,7 +115,7 @@
           <v-btn
             class="warning-button-outline mr-5"
             @click="$router.push('/hearing-test')"
-            color="#ffb404"
+            color="#cc0000"
             outlined
           >
             <img :src="require('@/assets/media/arrow-right-1.png')"
@@ -173,13 +173,13 @@ export default {
   },
   methods:{
     submitUser(){
-      apiClient.post("user",{
+      apiClient.post("user?id="+this.$store.state.HearingTest.ID,{
          "first_name":this.firstName,
          "last_name":this.lastName,
          "email":this.email,
          "contact_number":this.contactNumber
       }).then((response)=>{
-        apiClient.post("complete-test",
+        apiClient.post("complete-test?id="+this.$store.state.HearingTest.ID,
         {
            "test":"complete"
         }).then((response)=>{
@@ -193,6 +193,10 @@ export default {
 };
 </script>
 <style scoped>
+>>>.theme--light.v-input input, .theme--light.v-input textarea {
+
+    font-size:12px;
+}
 .banner-with-person > .banner-image {
   left: -4vw;
 }
@@ -392,7 +396,8 @@ export default {
   flex-wrap: wrap;
   padding-top: 22px;
   border-radius: 10px;
-  background: #1f2f40 !important;
+  background: #fff !important;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.24);
 }
 /* .align-content-space-between {
   display: -webkit-box;
@@ -412,7 +417,7 @@ export default {
   font-weight: 800;
   font-size: 2.7vw;
   line-height: 3vw;
-  color: #ffffff;
+  /* color: #ffffff; */
 }
 
 .input-append-icon {
@@ -446,7 +451,7 @@ export default {
     min-width: 29vw;
     width: 27vw;
     line-height: 4vh;
-    color: #ffffff;
+    /* color: #ffffff; */
   }
 }
 @media only screen and (max-width: 800px) {
@@ -462,5 +467,10 @@ export default {
     display: none;
   }
 }
-
+>>> .country-code {
+  display:none;
+}
+>>> .v-text-field .v-input__slot {
+  border: 1px solid rgba(30, 29, 27, 0.2);
+}
 </style>

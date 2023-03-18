@@ -2,7 +2,8 @@ const state = {
   // search filter responses: needed to use at front pages
   testSounds: [],
   currentPlayedIndex:0,
-  dataLog:null
+  dataLog:null,
+  ID:null
   
 };
 
@@ -24,6 +25,15 @@ const mutations = {
   },
   updateLog(state,data){
     state.dataLog=data;
+  },
+  reset(state){
+    state.dataLog=null;
+    state.currentPlayedIndex=0;
+    state.testSounds=[],
+    state.ID=null
+  },
+  setId(state,id){
+    state.ID=id;
   }
 
  
@@ -45,6 +55,12 @@ const actions = {
   },
   maintainHistory({commit},payload){
     commit('updateLog',payload);
+  },
+  resetStore({commit}){
+    commit('reset');
+  },
+  testId({commit},testID){
+    commit('setId',testID);
   }
   
  
