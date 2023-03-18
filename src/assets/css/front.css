@@ -412,7 +412,7 @@
         /* display: flex; */
         /* align-items: center; */
         /* text-align: center; */
-        color: #FFFFFF;
+        /* color: #FFFFFF; */
     }
 
     .yellow-circle-tick {
@@ -971,7 +971,7 @@ theme--light.v-divider {
     /* display: flex; */
     /* align-items: center; */
     /* text-align: center; */
-    color: #FFFFFF;
+    /* color: #FFFFFF; */
 }
 
 .ex1 span img {
@@ -1341,7 +1341,7 @@ theme--light.v-divider {
 
     .yellow-circle-tick {
 
-        background: #ffb404 url('../media/tick.png') no-repeat center center;
+        /* background: #ffb404 url('../media/tick.png') no-repeat center center; */
         position: relative;
         top: -1vh !important;
         bottom: 1.5vh !important;

@@ -4,7 +4,7 @@
     <div class="flex-align flex-mobile-align">
       <div class="left-side mobile-left mobile-left-side">
         <div class="audien-title">
-          <span class="mb-5 steps">STEP 6 of 20</span>
+          <span class="mb-5 steps">STEP {{6+playedSound.length}} of 20</span>
           <h1 class="mt-5">Hearing Test</h1>
   
           <p class="mt-5">
@@ -29,21 +29,41 @@
             </v-btn>
              <v-btn
               v-if="played"
-              class="warning-button mt-10"
+              class="warning-button-outline mt-10 pause-button"
+              color="#cc0000"
               @click="play(); played=!played"
               style="width: 40%"
+              outlined
             >
               <img
                 class="mr-2"
-                :src="require('@/assets/media/play-circle.png')"
-              />Stop
+                :src="require('@/assets/media/pause-circle.png')"
+              />Pause
+            </v-btn>
+           
+            <v-btn
+              v-if="selectedEar==-1"
+              class="warning-button warning-button__ear mt-10"
+             
+              
+              style="width: 60%">
+              <img class="mr-2" :src="require('@/assets/media/ear-left.png')" />Left ear 
             </v-btn>
             <v-btn
+              v-if="selectedEar==0"
               class="warning-button warning-button__ear mt-10"
-              @click="$router.push('/instruction')"
-              style="width: 70%"
-            >
-              <img class="mr-2" :src="require('@/assets/media/ear-left.png')" />Left ear
+             
+              
+              style="width: 60%">
+              <img class="mr-2" :src="require('@/assets/media/ear-both.png')" />both ear 
+            </v-btn>
+            <v-btn
+              v-if="selectedEar==1"
+              class="warning-button warning-button__ear mt-10"
+             
+              
+              style="width: 60%">
+              <img class="mr-2" :src="require('@/assets/media/ear-right.png')" />right ear 
             </v-btn>
           </div>
         </div>
@@ -61,7 +81,7 @@
               append-icon="mdi-volume-high"
               ticks="always"
               tick-color="#fff"
-              thumb-color="#fff"
+              thumb-color="#1E1D1B"
               thumb-size="50"
               step="10"
               tick-size="10"
@@ -73,42 +93,28 @@
             <div class="d-flex justify-space-between">
               <v-btn 
                 class="warning-button-outline mt-5" 
-                color="#cc0000" 
+                color="#CC0000" 
                 style="width: 47%"
+                @click="decrement"
                 outlined
-              ><img :src="require('@/assets/media/icon-minus-orange.png')" 
+              ><img :src="require('@/assets/media/icon-minus-red.png')" 
               /></v-btn>
               <v-btn 
                 class="warning-button-outline mt-5" 
-                color="#cc0000" 
+                color="#CC0000" 
                 style="width: 47%"
+                @click="increment"
                 outlined
-              ><img :src="require('@/assets/media/icon-plus-orange.png')" 
+              ><img :src="require('@/assets/media/icon-plus-red.png')" 
               /></v-btn>
             </div>
           </div>
         </div>
-        <!-- <div class="d-flex justify-space-between" style="margin-left: 10.6vw; margin-right: auto; width: 30vw;">
-          <v-btn
-            style="width: 48%"
-            class="warning-button-outline mt-5"
-            @click="$router.push('/instruction')"
-            color="#ffb404"
-            outlined
-          >-</v-btn>
-          <v-btn
-            style="width: 48%"
-            class="warning-button-outline mt-5"
-            @click="$router.push('/instruction')"
-            color="#ffb404"
-            outlined
-          >+</v-btn>
-        </div> -->
         <div class="align-step-button">
           <v-btn
             class="warning-button-outline mr-2 mt-5"
             @click="$router.push('/instruction')"
-            color="#cc0000"
+            color="#CC0000"
             outlined
           >
             <img :src="require('@/assets/media/arrow-right-1.png')"
@@ -145,7 +151,7 @@
         </div>
       </div>
       <div ref="myBtn" class="back-office-page mobile-right right-side">
-        <headphone />
+        <headphone :isPlaying="played" />
       </div>
     </div>
     <footerVue />
@@ -265,6 +271,24 @@ export default {
       return this.$store.state.HearingTest.testSounds.filter((item)=>{
         return item.played == false;
       })
+    },
+     playedSound(){
+      return this.$store.state.HearingTest.testSounds.filter((item)=>{
+        return item.played == true;
+      })
+    },
+    selectedEar(){
+      if(this.$store.state.HearingTest && this.$store.state.HearingTest.dataLog && this.$store.state.HearingTest.dataLog.ear){
+        if(this.$store.state.HearingTest.dataLog.ear=='left'){
+          return -1
+        }
+        if(this.$store.state.HearingTest.dataLog.ear=='both'){
+          return 0
+        }
+        if(this.$store.state.HearingTest.dataLog.ear=='right'){
+          return 1
+        }
+      }
     }
   },
     watch: {
@@ -277,7 +301,7 @@ export default {
     }
   },
    created(){
-let seletecdSound = this.audios.slice(0, 5).map(function () { 
+let seletecdSound = this.audios.slice(0, 8).map(function () { 
         return this.splice(Math.floor(Math.random() * this.length), 1)[0];
     }, this.audios.slice());
     this.$store.dispatch('setHearingTestSounds',seletecdSound)
@@ -291,6 +315,14 @@ let seletecdSound = this.audios.slice(0, 5).map(function () {
     setInterval(this.refreshData, 5000)
   },
    methods:{
+    decrement(){
+       this.volume-=10
+    },
+    increment(){
+    
+       this.volume +=10
+        
+    },
     nextSoundPlayed(){
       console.log(this.currentPlayedIndex);
        this.$store.dispatch('nextSoundPlayed',this.currentPlayedIndex)
@@ -305,9 +337,9 @@ let seletecdSound = this.audios.slice(0, 5).map(function () {
     NextPlay(){
      let volume = (this.volume/100)*10;
      let soundId = this.hearingTest[this.currentPlayedIndex].id;
-     apiClient.post("attempt-test",{
+     apiClient.post("attempt-test?id="+this.$store.state.HearingTest.ID,{
       "sound_id": soundId,
-      "sound_volume": volume
+      "sound_volume": volume==0?1:this.volume
      }).then((response)=>{
 
      ;
@@ -319,11 +351,12 @@ let seletecdSound = this.audios.slice(0, 5).map(function () {
    
     },
     play(){
-      console.clear()
       console.log(this.played);
       if(this.played===false){
         console.log('@@@@')
+        
          audioElement.play()
+       
          }else{
            audioElement.pause()
          }
@@ -334,7 +367,7 @@ let seletecdSound = this.audios.slice(0, 5).map(function () {
     },
      refreshData() {
        AudioContext = window.AudioContext || window.webkitAudioContext;
- audioCtx = new AudioContext();
+  audioCtx = new AudioContext();
 
 // load some sound
  audioElement =  this.$refs.test;
@@ -344,13 +377,14 @@ let seletecdSound = this.audios.slice(0, 5).map(function () {
  panner = new StereoPannerNode(audioCtx, pannerOptions);
  gainNode = audioCtx.createGain();
 track.connect(gainNode).connect(panner).connect(audioCtx.destination);
-     gainNode.gain.value = this.volume/100;
+      	panner.pan.value = this.selectedEar;
    
     },
    }
 };
 </script>
 <style>
+
 .v-slider__thumb::after {
   display: none;
 }
@@ -375,8 +409,8 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   position: absolute !important;
   /* top: 35% !important; */
   /* z-index: -111; */
-  background: #fff !important;
-  opacity: 0.2;
+  background: #1E1D1B33 !important;
+  /* opacity: 0.2; */
   right: 2% !important;
   left: 2% !important;
 }
@@ -387,8 +421,8 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   position: absolute !important;
   /* top: % !important; */
   right: 2% !important;
-  opacity: 0.2;
-  background: #fff !important;
+  /* opacity: 0.2; */
+  background: #1E1D1B33 !important;
 }
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(3) {
   height: 15px !important;
@@ -398,8 +432,8 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   /* top: -100% !important; */
   /* bottom: 3px; */
   margin-top: -2px;
-  background: #fff !important;
-  opacity: 0.2;
+  background: #1E1D1B33 !important;
+  /* opacity: 0.2; */
 }
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(4) {
   height: 20px !important;
@@ -409,8 +443,8 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   position: absolute !important;
   /* top: 22% !important; */
   margin-top: -4px;
-  background-color: #fff;
-  opacity: 0.2;
+  background-color: #1E1D1B33;
+  /* opacity: 0.2; */
   /* z-index: -111; */
 }
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(5) {
@@ -420,8 +454,8 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   position: absolute !important;
   margin-top: -6px;
   /* z-index: -111; */
-  background-color: #fff;
-  opacity: 0.2;
+  background-color: #1E1D1B33;
+  /* opacity: 0.2; */
 }
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(6) {
   height: 35px !important;
@@ -429,8 +463,8 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   /* z-index: -111; */
   position: absolute !important;
   margin-top: -9px;
-  background-color: #fff;
-  opacity: 0.2;
+  background-color: #1E1D1B33;
+  /* opacity: 0.2; */
 }
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(7) {
   height: 40px !important;
@@ -438,8 +472,8 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   /* z-index: -111; */
   position: absolute !important;
   margin-top: -11px;
-  background-color: #fff;
-  opacity: 0.2;
+  background-color: #1E1D1B33;
+  /* opacity: 0.2; */
 }
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(8) {
   height: 45px !important;
@@ -447,8 +481,8 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   /* z-index: -111; */
   position: absolute !important;
   margin-top: -14px;
-  background-color: #fff;
-  opacity: 0.2;
+  background-color: #1E1D1B33;
+  /* opacity: 0.2; */
 }
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(9) {
   height: 50px !important;
@@ -456,8 +490,8 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   /* z-index: -111; */
   position: absolute !important;
   margin-top: -16px;
-  background-color: #fff;
-  opacity: 0.2;
+  background-color: #1E1D1B33;
+  /* opacity: 0.2; */
 }
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(10) {
   height: 50px !important;
@@ -465,8 +499,8 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   width: 1px !important;
   position: absolute !important;
   margin-top: -18px;
-  background-color: #fff;
-  opacity: 0.2;
+  background-color: #1E1D1B33;
+  /* opacity: 0.2; */
 }
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(11) {
   height: 50px !important;
@@ -474,8 +508,8 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   width: 1px !important;
   position: absolute !important;
   margin-top: -18px;
-  background-color: #fff;
-  opacity: 0.2;
+  background-color: #1E1D1B33;
+  /* opacity: 0.2; */
 }
 .theme--light.v-btn.v-btn--disabled.v-btn--has-bg {
     background-color: rgb(255 180 4 / 57%) !important;
@@ -524,17 +558,20 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   margin-right: auto;
 }
 .warning-button__ear {
-  background: #1f2f40 !important;
+  background: #fff !important;
 }
 .warning-button__ear img {
   color: #fff;
   width: 24%;
 }
 >>> .warning-button__ear .v-btn__content {
-  color: #fff !important;
+  color: #1E1D1B !important;
 }
 >>> .pause-button .v-btn__content {
-  color: #fff !important;
+  color: #1E1D1B !important;
+}
+>>> .pause-button {
+  height: inherit !important;
 }
 
 @media only screen and (max-width: 800px) {
@@ -570,5 +607,17 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
 }
 .align-content-space-between {
   flex-direction: column;
+}
+.pause >>>.v-btn__content {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 800 !important;
+    font-size: 1.3vh !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: #fff !important;
+}
+>>> .volume .v-icon {
+  color: #1E1D1B;
 }
 </style>
