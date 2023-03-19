@@ -72,7 +72,7 @@
 
                   <v-btn
                     class="buy-now-btn mt-2"
-                    @click="$router.push('/finish')"
+                    @click="buyone"
                     color="#cc0000"
                   >
                     <img :src="require('@/assets/media/icon-cart-black.png')" />
@@ -133,7 +133,7 @@
 
                   <v-btn
                     class="buy-now-btn mt-2"
-                    @click="$router.push('/finish')"
+                    @click="buytwo"
                     color="#cc0000"
                   >
                     <img :src="require('@/assets/media/icon-cart-black.png')" />
@@ -165,7 +165,7 @@
               <div>
                 <v-btn
                   class="buy-now-btn mt-2"
-                  @click="$router.push('/finish')"
+                  @click="buytwo"
                   color="#cc0000"
                 >
                   <img :src="require('@/assets/media/icon-cart-white.png')" />
@@ -186,7 +186,7 @@
               <div>
                 <v-btn
                   class="buy-now-btn mt-2"
-                  @click="$router.push('/finish')"
+                  @click="buyone"
                   color="#cc0000"
                 >
                   <img :src="require('@/assets/media/icon-cart-white.png')" />
@@ -268,7 +268,7 @@
 
                   <v-btn
                     class="buy-now-btn mt-2"
-                    @click="$router.push('/finish')"
+                    @click="buyone"
                     color="#cc0000"
                   >
                     <img :src="require('@/assets/media/icon-cart-white.png')" />
@@ -330,7 +330,7 @@
 
                   <v-btn
                     class="buy-now-btn mt-2"
-                    @click="$router.push('/finish')"
+                    @click="buytwo"
                     color="#cc0000"
                   >
                     <img :src="require('@/assets/media/icon-cart-white.png')" />
@@ -359,21 +359,27 @@ export default {
       isTooltipVisible: false
     };
   },
+  mounted(){
+    this.$store.dispatch('resetStore')
+  },
   methods: {
+    resetStore(){
+      this.$store.dispatch('resetStore')
+      this.$router.push('/')
+    },
     toggleTooltip() {
       this.isTooltipVisible = !this.isTooltipVisible
+    },
+    buyOne(){
+      window.open('https://audienhearing.com/', '_blank', 'noreferrer');
+    },
+    buytwo(){
+      window.open('https://audienhearing.com/products/audien-atom-pro-pair', '_blank', 'noreferrer');
     }
   }
 };
 </script>
 <style scoped>
-.overlay {
-  display: none;
-}
-.finish-right-side {
-  /* background: #102132; */
-  /* padding-top: 100px; */
-}
 .button-dev {
   display: flex;
   flex-direction: column;
@@ -471,9 +477,6 @@ export default {
   /* or 130% */
 
   text-align: center;
-
-  /* #FFFFFF */
-
   color: #ffffff;
 }
 .buy-now-btn {

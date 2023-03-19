@@ -137,22 +137,6 @@ export default {
     /* margin: -5.1vw; */
     width: 25vh !important;
     height: 25vh !important;
-    /* bottom: 24px !important; */
-    /* top: 2vh !important; */
-    /* left: 5.5vw !important; */
-    /* background: -webkit-gradient(
-      linear,
-      right top,
-      left top,
-      color-stop(26%, #ffffff12),
-      color-stop(151%, rgb(255 180 4 / 2%))
-    );
-    background: linear-gradient(
-      270deg,
-      #ffffff0f 26%,
-      rgb(255 180 4 / 0%) 151%
-    ); */
-    /* background: linear-gradient(180deg, #000000 0%, rgba(255, 255, 255, 0) 100%); */
   }
   .gradient-one {
     position: relative;
@@ -162,21 +146,6 @@ export default {
     /* margin: -5.1vw; */
     width: 30vh ;
     height: 30vh ;
-    /* bottom: 24px; */
-    /* top: 5vh ; */
-    /* left: 15vw ; */
-    /* background: -webkit-gradient(
-      linear,
-      right top,
-      left top,
-      color-stop(26%, #ffffff14),
-      color-stop(151%, rgb(255 180 4 / 0%))
-    );
-    background: linear-gradient(
-      270deg,
-      #ffffff14 26%,
-      rgb(255 180 4 / 0%) 151%
-    ); */
   }
   .start-btn-sm {
     display: flex;

@@ -224,9 +224,6 @@ export default {
 >>> .vue-tel-input-vuetify .country-code {
   width: 29% !important;
 }
-.black-label label {
-  /* color: #fff !important; */
-}
 .black-label /deep/ label {
   /* color: #fff; */
   font-family: 'Lato';
@@ -236,7 +233,7 @@ export default {
   line-height: 36px;
   /* identical to box height, or 277% */
 
-  /* #FFFFFF */
+
 
   color: #1E1D1B;
 }
@@ -417,7 +414,6 @@ export default {
   font-weight: 800;
   font-size: 2.7vw;
   line-height: 3vw;
-  /* color: #ffffff; */
 }
 
 .input-append-icon {
@@ -451,7 +447,6 @@ export default {
     min-width: 29vw;
     width: 27vw;
     line-height: 4vh;
-    /* color: #ffffff; */
   }
 }
 @media only screen and (max-width: 800px) {

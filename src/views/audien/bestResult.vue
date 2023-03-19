@@ -71,7 +71,6 @@ export default {
     max-width: 31vw;
     width: 30vw;
     line-height: 4vh;
-    /* color: #ffffff; */
   }
 }
 

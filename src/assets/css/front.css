@@ -1454,21 +1454,9 @@ theme--light.v-divider {
 
 
 
-
-    /* .mobile-banner-button {
-        display: block;
-        height: 28vh;
-        width: 148%;
-        top: 64vh;
-        position: fixed;
-
-        background: #102132 url('../media/mask-group.png')no-repeat center center / cover;
-    } */
-
     .left-side {
         width: 100vw;
         background: #F4F4F4;
-        /* background: #102132; */
 
     }
 

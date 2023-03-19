@@ -196,8 +196,6 @@ export default {
 
   text-align: center;
 
-  /* #FFFFFF */
-
   color: #ffffff;
 }
 @media only screen and (max-width: 800px) {

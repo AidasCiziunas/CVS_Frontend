@@ -78,7 +78,6 @@ export default {
     min-width: 24vw;
     width: 19vw;
     line-height: 4vh;
-    /* color: #ffffff; */
   }
   .align-step-button {
     margin-top: 64px;
