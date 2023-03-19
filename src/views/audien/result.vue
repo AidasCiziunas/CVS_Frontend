@@ -64,19 +64,19 @@
 
             <div class="result-table">
               <div class="">
-                <div class="hearing-condition__title">Your Hearing is OK</div>
+                <div class="hearing-condition__title">Significant Hearing Difficulties</div>
               </div>
               <div class="">
                 <div class="hearing-condition__title">Some Difficulty Hearing</div>
               </div>
               <div class="">
-                <div class="hearing-condition__title">Significant Hearing Difficulties</div>
+                <div class="hearing-condition__title">Your Hearing is OK</div>
               </div>
             </div>
 
             <div class="help-button">
-              <v-btn color="#1F2F40;" class="mr-2" height="60" @click="toggleTooltip" depressed>
-                <img :src="require('@/assets/media/help-circle.png')" />
+              <v-btn color="#fff;" class="mr-2" height="60" @click="toggleTooltip" depressed>
+                <img :src="require('@/assets/media/help-circle-result.png')" />
               </v-btn>
             </div>
           </div>
@@ -121,7 +121,7 @@
           <v-btn
             class="warning-button-outline mr-5"
             @click="$router.push('/completing-hearing')"
-            color="#ffb404"
+            color="#cc0000"
             outlined
           >
             <img :src="require('@/assets/media/arrow-right-1.png')"
@@ -225,8 +225,9 @@ export default {
   flex-wrap: nowrap;
   /* padding-top: 0px; */
   border-radius: 10px;
-  background: #1f2f40 !important;
+  background: #ffffff !important;
   position: relative;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.24);
 }
 .side-image {
      position: absolute;
@@ -458,12 +459,12 @@ export default {
   width: 70% !important;
 }
 .difficulty {
-  color: #ffb404;
+  color: #cc0000;
   font-family: 'Lato';
   font-style: normal;
   font-weight: 500;
-  font-size: 24px;
-  line-height: 36px;
+  /* font-size: 24px;
+  line-height: 36px; */
 }
 .scale-gradient {
   background: linear-gradient(180deg, #4CBC25 0%, #FFE600 50%, #FF3B16 100%);
@@ -540,14 +541,14 @@ export default {
 >>> .v-slider--vertical .v-slider__thumb-label-container {
   top: 12px;
 }
->>> .v-slider--vertical.theme--light.v-slider .v-slider__thumb, 
->>> .v-slider--vertical.theme--light.v-slider .v-slider__track-background, 
->>> .v-slider--vertical.theme--light.v-slider .v-slider__track-fill {
+>>> .theme--light.v-slider .v-slider__thumb, 
+>>> .theme--light.v-slider .v-slider__track-background, 
+>>> .theme--light.v-slider .v-slider__track-fill {
   background: rgba(0,0,0,0);
 }
 
 .hearing-condition__title {
-  color: #ffffff;
+  color: #1E1D1B;
 }
 
 .result-table-2 {
@@ -575,7 +576,7 @@ export default {
 
 .hearing-condition__description {
   width: 55%;
-  color: #ffffff;
+  color: #1E1D1B;
 
   font-family: 'Lato';
   font-style: normal;
@@ -590,18 +591,20 @@ export default {
 .hearing-row {
   flex: 1;
   display: flex;
-  border-top: 1px solid rgb(255 255 255 / 24%);
+  border-top: 1px solid #1E1D1B33;
+  
   gap: 2em;
   padding-left: 20px;
 }
 .hearing-row--last {
-  border-bottom: 1px solid rgb(255 255 255 / 24%)
+  border-bottom: 1px solid #1E1D1B33;
 }
 
 .small-slider-container {
-  background: #1F2F40;
+  background: #fff;
   border-radius: 10px;
   padding: 5px 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.24);
 }
 
 /* >>> .theme--light.v-slider .v-slider__thumb, 
@@ -610,10 +613,10 @@ export default {
   background: rgba(0,0,0,0);
 } */
 >>> .small-slider-container .theme--light.v-slider .v-slider__thumb {
-  background: #fff;
+  background: #1E1D1B;
   width: 10px;
   height: 32px;
-  border-radius: 0;
+  border-radius: 2px;
 }
 >>> .small-slider-container .v-slider__track-container {
   background: linear-gradient(90deg, #ff3b16 0%, #ffe600 50%, #4cbc25 100% );
@@ -629,10 +632,10 @@ export default {
 .result-table {
   display: flex;
   margin: 0 8px;
-  border-right: 1px solid rgb(255, 255, 255, 0.2);
+  border-right: 1px solid #1E1D1B33;
 }
 .result-table > div {
-  border-left: 1px solid rgb(255, 255, 255, 0.2);
+  border-left: 1px solid #1E1D1B33;
   flex: 1;
 }
 .result-table .hearing-condition__title {
@@ -646,7 +649,7 @@ export default {
   text-align: center;
 }
 .help-button button {
-  background-color: #1F2F40 !important;
+  background-color: #fff !important;
   width: 35px;
 }
 .help-button button:before {

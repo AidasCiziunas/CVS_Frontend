@@ -22,7 +22,7 @@
           <v-btn
             class="warning-button-outline mr-2 mt-2"
             @click="$router.push('/result')"
-            color="#ffb404"
+            color="#cc0000"
             outlined
           >
             <img :src="require('@/assets/media/arrow-right-1.png')"
@@ -92,7 +92,6 @@ export default {
     min-width: 30vw;
     width: 24vw;
     line-height: 4vh;
-    color: #ffffff;
   }
 }
 </style>

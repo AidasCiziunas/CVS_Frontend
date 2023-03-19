@@ -30,7 +30,7 @@
                     <template slot="append">
                       <img
                         class="input-append-icon"
-                        :src="require('@/assets/media/user.png')"
+                        :src="require('@/assets/media/form-user.png')"
                       />
                     </template>
                   </v-text-field>
@@ -50,7 +50,7 @@
                     <template slot="append">
                       <img
                         class="input-append-icon"
-                        :src="require('@/assets/media/user.png')"
+                        :src="require('@/assets/media/form-user.png')"
                       />
                     </template>
                   </v-text-field>
@@ -97,7 +97,7 @@
                   cols="12"
                 >
                   <v-checkbox
-                    color="white"
+                    color="#1E1D1B"
                     class="black-label"
                     label="I agree to the terms & conditions"
                   ></v-checkbox>
@@ -105,7 +105,7 @@
               </v-row>
             </div>
             <v-checkbox
-              color="white"
+              color="#1E1D1B"
               class="black-label large-screen"
               label="I agree to the terms & conditions"
             ></v-checkbox>
@@ -225,10 +225,10 @@ export default {
   width: 29% !important;
 }
 .black-label label {
-  color: #fff !important;
+  /* color: #fff !important; */
 }
 .black-label /deep/ label {
-  color: #fff;
+  /* color: #fff; */
   font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
@@ -238,7 +238,7 @@ export default {
 
   /* #FFFFFF */
 
-  color: #ffffff;
+  color: #1E1D1B;
 }
 .completing-input >>> .country-selector__toggle {
   position: absolute;

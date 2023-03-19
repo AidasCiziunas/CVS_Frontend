@@ -838,7 +838,7 @@ theme--light.v-divider {
 }
 
 .theme--light.v-icon {
-    color: #fff;
+    color: #1E1D1B33;
 }
 
 .completing-input .v-text-field__details {
@@ -1586,8 +1586,7 @@ theme--light.v-divider {
       position: relative;
     }
     .mobile-tooltip .content span {
-      /* opacity: 0.5; */
-      color: #1E1D1B80;
+      color: #1e1d1bcc;
     }
     .mobile-tooltip:before {
       content: " ";
@@ -1595,7 +1594,7 @@ theme--light.v-divider {
       width: 60px;
       height: 4px;
   
-      background: #1C2E40;
+      background: rgb(28 46 64 / 10%);
       border-radius: 4px;
   
       top: 18px;

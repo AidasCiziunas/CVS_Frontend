@@ -31,7 +31,7 @@
           <v-btn
             class="warning-button-outline mr-5 mt-2"
             @click="$router.push('/disclaimer')"
-            color="#ffb404"
+            color="#cc0000"
             outlined
           >
             <img :src="require('@/assets/media/arrow-right-1.png')"
@@ -78,8 +78,8 @@ export default {
   .ex1 span {
     display: block;
     /* padding: 24px 4px 3px 11px; */
-    border: 2px solid #142435;
-    background: #1f2f40;
+    /* border: 2px solid #142435; */
+    background: #fff;
     border-radius: 5px;
     width: 38vw !important;
     /* height: 18vh !important; */
@@ -123,8 +123,7 @@ export default {
   padding-bottom: 20px;
   display: block;
   /* padding: 24px 4px 3px 11px; */
-  border: 2px solid #142435;
-  background: #1f2f40;
+  background: #fff;
   border-radius: 5px;
   width: 11vw;
   /* height: 8.2vw; */
@@ -134,6 +133,7 @@ export default {
   -webkit-transition: all 0.25s linear;
   transition: all 0.25s linear;
   text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.24);
 }
 .footer {
   height: 100px;
@@ -151,11 +151,11 @@ export default {
   position: relative;
   bottom: 0.6vw;
 }
-.ex1 span[data-v-a396c8c0] {
+/* .ex1 span[data-v-a396c8c0] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  /* padding: 24px 4px 3px 11px; */
+
   border: 2px solid #142435;
   background: #1f2f40;
   border-radius: 5px;
@@ -171,7 +171,7 @@ export default {
   -webkit-transition: all 0.25s linear;
   transition: all 0.25s linear;
   text-align: center;
-}
+} */
 .ex1 span p {
   font-family: "Lato";
   font-style: normal;
@@ -184,7 +184,7 @@ export default {
   /* display: flex; */
   /* align-items: center; */
   /* text-align: center; */
-  color: #ffffff;
+  color: #1E1D1B;
 }
 .button-label {
   font-family: "Lato";

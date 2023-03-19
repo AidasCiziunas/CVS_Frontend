@@ -3,7 +3,7 @@
     <div class="left-header mobile-left-side">
       <div class="logo-align">
         <router-link to="/">
-          <img :src="require('@/assets/media/logo-converted.png')"
+          <img :src="require('@/assets/media/logo.png').default"
         /></router-link>
       </div>
     </div>
@@ -11,7 +11,7 @@
       class="right-header mobile-right-side back-office-page"
       :class="{ 'finish-page': isFinish }"
     >
-      <div class="logo-align mt-10">
+      <div class="logo-align">
         <v-btn class="warning-button">
           <img :src="require('@/assets/media/lock.png')" />
           <span class="ml-2">Shop all hearing solutions</span>
@@ -22,7 +22,7 @@
       <div class="mobile-flex">
         <div>
           <router-link to="/">
-            <img class="logo" :src="require('@/assets/media/logo-sm.png')" alt="logo"
+            <img class="logo" :src="require('@/assets/media/logo.png')" alt="logo"
           /></router-link>
         </div>
 
@@ -94,6 +94,6 @@ export default {
   height: 10px !important;
 }
 .right-header.finish-page {
-  background: #102132;
+  /* background: #102132; */
 }
 </style>

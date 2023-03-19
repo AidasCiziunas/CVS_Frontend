@@ -73,7 +73,7 @@
                   <v-btn
                     class="buy-now-btn mt-2"
                     @click="$router.push('/finish')"
-                    color="#ffb404"
+                    color="#cc0000"
                   >
                     <img :src="require('@/assets/media/icon-cart-black.png')" />
                     <span class="ml-2">Buy now</span>
@@ -134,7 +134,7 @@
                   <v-btn
                     class="buy-now-btn mt-2"
                     @click="$router.push('/finish')"
-                    color="#ffb404"
+                    color="#cc0000"
                   >
                     <img :src="require('@/assets/media/icon-cart-black.png')" />
                     <span class="ml-2">Buy now</span>
@@ -166,9 +166,9 @@
                 <v-btn
                   class="buy-now-btn mt-2"
                   @click="$router.push('/finish')"
-                  color="#ffb404"
+                  color="#cc0000"
                 >
-                  <img :src="require('@/assets/media/icon-cart-black.png')" />
+                  <img :src="require('@/assets/media/icon-cart-white.png')" />
                   <span class="ml-2">Buy now</span>
                 </v-btn>
               </div>
@@ -187,9 +187,9 @@
                 <v-btn
                   class="buy-now-btn mt-2"
                   @click="$router.push('/finish')"
-                  color="#ffb404"
+                  color="#cc0000"
                 >
-                  <img :src="require('@/assets/media/icon-cart-black.png')" />
+                  <img :src="require('@/assets/media/icon-cart-white.png')" />
                   <span class="ml-2">Buy now</span>
                 </v-btn>
               </div>
@@ -204,7 +204,7 @@
           <v-btn
             class="warning-button-outline"
             @click="$router.push('/')"
-            color="#ffb404"
+            color="#cc0000"
             outlined
           >
             <img :src="require('@/assets/media/rotate-cw.png')" />
@@ -269,9 +269,9 @@
                   <v-btn
                     class="buy-now-btn mt-2"
                     @click="$router.push('/finish')"
-                    color="#ffb404"
+                    color="#cc0000"
                   >
-                    <img :src="require('@/assets/media/icon-cart-black.png')" />
+                    <img :src="require('@/assets/media/icon-cart-white.png')" />
                     <span class="ml-2">Buy now</span>
                   </v-btn>
                 </div>
@@ -331,9 +331,9 @@
                   <v-btn
                     class="buy-now-btn mt-2"
                     @click="$router.push('/finish')"
-                    color="#ffb404"
+                    color="#cc0000"
                   >
-                    <img :src="require('@/assets/media/icon-cart-black.png')" />
+                    <img :src="require('@/assets/media/icon-cart-white.png')" />
                     <span class="ml-2">Buy now</span>
                   </v-btn>
                 </div>
@@ -371,7 +371,7 @@ export default {
   display: none;
 }
 .finish-right-side {
-  background: #102132;
+  /* background: #102132; */
   /* padding-top: 100px; */
 }
 .button-dev {
@@ -379,10 +379,12 @@ export default {
   flex-direction: column;
   align-items: center;
 
-  background: #1f2f40;
+  background: #FFF;
   border-radius: 10px;
   padding-top: 28px;
   padding-bottom: 23px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.24);
+  border-radius: 15px;
 }
 
 .button-placeholder {
@@ -402,7 +404,7 @@ export default {
   padding-top: 6%;
   padding-right: 4%;
   padding-bottom: 28px;
-  color: #ffffff;
+  color: #1e1d1b;
 }
 .features {
   padding-left: 2rem;
@@ -410,16 +412,16 @@ export default {
   width: 100%;
 }
 .features__item {
-  border-top: 1px solid rgb(255 255 255 / 20%);
+  border-top: 1px solid #1E1D1B33;
   padding-top: 10px;
   text-align: center;
 }
 .features__item-last {
-  border-bottom: 1px solid rgb(255 255 255 / 20%);
+  border-bottom: 1px solid #1E1D1B33;
   margin-bottom: 20px;
 }
 .item__name {
-  color: #fff;
+  color: #1e1d1b;
   font-family: "Lato";
   font-size: 11px;
   margin-bottom: 7px;
@@ -482,13 +484,14 @@ export default {
 }
 
 .product-item {
-  background: #1f2f40;
+  background: #fff;
   border-radius: 10px;
   margin-bottom: 20px;
   display: flex;
   width: 90vw;
   height: 150px;
   align-items: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.24);
 }
 .product-item__image {
   width: 35%;
@@ -564,6 +567,6 @@ export default {
   }
 }
 .warning-button-outline span {
-  color: #fff;
+  color: #1e1d1b;
 }
 </style>
