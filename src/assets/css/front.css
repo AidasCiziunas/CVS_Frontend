@@ -508,7 +508,7 @@
     font-weight: 300;
     font-size: 20px;
     min-width: 25vw;
-    width: 24vw;
+    width: 30vw;
     line-height: 4vh;
     color: #1E1D1B;
 }
@@ -595,7 +595,7 @@ theme--light.v-divider {
     font-size: 16px;
 
     /* identical to box height, or 125% */
-
+    text-transform: uppercase;
 
     color: #1E1D1B;
 
@@ -1405,6 +1405,7 @@ theme--light.v-divider {
         height: auto;
         margin-right: 20px;
         margin-left: 20px;
+        margin-top: 9vh;
     }
 
     .audien-title h1 {
