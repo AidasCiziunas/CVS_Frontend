@@ -57,17 +57,70 @@
 import footerVue from "../../components/audien/footer.vue";
 import headerVue from "../../components/audien/header.vue";
 import headephone from "./headephone2.vue";
+
+let audioElement,audioCtx,pannerOptions,gainNode,track,AudioContext,panner,hissGainParam
 export default {
   components: {
     headephone,
     footerVue,
     headerVue,
   },
+  watch: {
+    // whenever question changes, this function will run
+    ear(selectedEar, oldQuestion) {
+     panner.pan.value = -1;
+      // this.refreshData();
+      	// panner.pan.value = newQuestion;	
+    
+    }
+  },
+ created(){
+      
+    this.$refs.myBtn.click()
+    },
+  mounted(){
+    this.$refs.myBtn.click()
+   
+    //  this.refreshData()
+    setInterval(this.refreshData, 5000)
+  },
   data() {
     return {
       ear: "off",
+      audio:false
+
     };
   },
+  methods:{
+   
+   async  refreshData() {
+    this.audio =true;
+     try {
+       AudioContext = await window.AudioContext || window.webkitAudioContext;
+    } catch (error) {
+      window.alert(
+        `Sorry, but your browser doesn't support the Web Audio API!`
+    );
+    }
+if (AudioContext !== undefined) {
+      
+ audioCtx = new AudioContext();
+
+// load some sound
+ audioElement = await  this.$refs.test;
+
+ pannerOptions = {pan: -1};
+ track = audioCtx.createMediaElementSource(audioElement);
+ panner = new StereoPannerNode(audioCtx, pannerOptions);
+ gainNode = audioCtx.createGain();
+track.connect(gainNode).connect(panner).connect(audioCtx.destination);
+      	panner.pan.value = -1;
+       
+      audioElement.play()
+}
+        
+    }
+  }
 };
 </script>
 <style scoped>
