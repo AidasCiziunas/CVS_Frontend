@@ -22,7 +22,7 @@
       <div class="mobile-flex">
         <div>
           <router-link to="/">
-            <img class="logo" :src="require('@/assets/media/logo.png')" alt="logo"
+            <img class="logo" :src="require('@/assets/media/logo-sm.png')" alt="logo"
           /></router-link>
         </div>
 
