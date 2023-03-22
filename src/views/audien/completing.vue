@@ -98,14 +98,18 @@
                 >
                   <v-checkbox
                     color="#1E1D1B"
+                    v-model="checked"
                     class="black-label"
                     label="I agree to the terms & conditions"
                   ></v-checkbox>
+                  
                 </v-col>
               </v-row>
             </div>
+            
             <v-checkbox
               color="#1E1D1B"
+              v-model="checked"
               class="black-label large-screen"
               label="I agree to the terms & conditions"
             ></v-checkbox>
@@ -157,6 +161,7 @@ export default {
       yourValue: null,
       premobileval: null,
       firstName:null,
+      checked:false,
       lastName:null,
       email:null,
       contactNumber:null
@@ -173,6 +178,10 @@ export default {
   },
   methods:{
     submitUser(){
+      if(!this.checked){
+         this.$awn.alert('Please check term and policy checkbox', {labels:{alert: 'Term and Policy'}})
+         return false;
+      }
       apiClient.post("user?id="+this.$store.state.HearingTest.ID,{
          "first_name":this.firstName,
          "last_name":this.lastName,

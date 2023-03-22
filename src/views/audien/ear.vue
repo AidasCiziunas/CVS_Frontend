@@ -133,11 +133,17 @@ export default {
           if(this.ear==-1) {
            selectectEar='left'
           }
- 
+ if(this.$store.state.HearingTest.ID && this.$store.state.HearingTest.ID!=null){
     apiClient.post("ear?id="+this.$store.state.HearingTest.ID,{ear:selectectEar}).then((response)=>{
     
        this.$router.push('/adjust-volume')
     })  
+    }else{
+      apiClient.post("ear",{ear:selectectEar}).then((response)=>{
+    
+       this.$router.push('/adjust-volume')
+    })
+    }
    
     },
      refreshData() {
