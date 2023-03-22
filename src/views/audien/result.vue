@@ -154,9 +154,16 @@ export default {
     footerVue,
     headerComponent,
   },
+   computed:{
+   slider1(){
+    if(this.$store.state && this.$store.state.HearingTest && this.$store.state.HearingTest.dataLog && this.$store.state.HearingTest.dataLog.test_result){
+      return this.$store.state.HearingTest.dataLog.test_result.score*10;
+    } 
+   }
+  },
   data() {
     return {
-      slider1: 0,
+     
       yourValue: null,
       premobileval: null,
       desserts: [
