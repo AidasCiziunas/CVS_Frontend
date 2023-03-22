@@ -3,7 +3,7 @@
     <div class="left-header mobile-left-side">
       <div class="logo-align">
         <router-link to="/">
-          <img :src="require('@/assets/media/logo.png').default"
+          <img :src="require('@/assets/media/Logo.png').default"
         /></router-link>
       </div>
     </div>
