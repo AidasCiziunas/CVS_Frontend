@@ -75,7 +75,7 @@
                     @click="buyone"
                     color="#cc0000"
                   >
-                    <img :src="require('@/assets/media/icon-cart-black.png')" />
+                    <img :src="require('@/assets/media/icon-cart-white.png')" />
                     <span class="ml-2">Buy now</span>
                   </v-btn>
                 </div>
@@ -136,7 +136,7 @@
                     @click="buytwo"
                     color="#cc0000"
                   >
-                    <img :src="require('@/assets/media/icon-cart-black.png')" />
+                    <img :src="require('@/assets/media/icon-cart-white.png')" />
                     <span class="ml-2">Buy now</span>
                   </v-btn>
                 </div>
@@ -214,7 +214,7 @@
       </div>
       <div class="finish-right-side back-office-page mobile-right right-side">
         <div class="product-descriptions">
-          <v-row class="mb-16">
+          <v-row class="mb-16 mt-4">
             <v-col cols="5">
               <div class="button-dev">
                 <img
@@ -554,7 +554,9 @@ export default {
   }
   .mobile-tooltip .content span {
     opacity: 1;
+    color: #fff;
   }
+  
 }
 @media only screen and (min-width: 801px) {
   .mobile-only {
@@ -572,4 +574,11 @@ export default {
 .warning-button-outline span {
   color: #1e1d1b;
 }
+.flex-mobile-align {
+  background: #f4f4f4;
+}
+.back-office-page {
+  background: none;
+}
+
 </style>
