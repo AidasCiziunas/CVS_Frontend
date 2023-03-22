@@ -60,6 +60,7 @@ const actions = {
     commit('reset');
   },
   testId({commit},testID){
+    console.log(testID,'test');
     commit('setId',testID);
   }
   
